@@ -1,6 +1,12 @@
 <script>
 export default {
-    name:'Header'
+    name:'Header',
+    props: {
+    activeSection: {
+      type: String,
+      required: true,
+    },
+}
 }
 </script>
 
@@ -18,12 +24,20 @@ export default {
                         </div>
                         <div class="d-flex">
                             <nav id="menu">
-                                <ul class="d-flex gap-3">
-                                    <li>item</li>
-                                    <li>item</li>
-                                    <li>item</li>
-                                    <li>item</li>
-                                    <li>item</li>
+                                <ul class="d-flex gap-4">
+                                    <li>
+                                        <RouterLink to="#home"
+                                        :class="{ anchor: activeSection === 'home' }">Home</RouterLink></li>
+                                    <li><RouterLink to="#advantages"
+                                        :class="{ anchor: activeSection === 'advantages' }">Punti di forza</RouterLink></li>
+                                    <li><RouterLink to="#reviews"
+                                        :class="{ anchor: activeSection === 'reviews' }">Recensioni</RouterLink></li>
+                                    <li><RouterLink to="#products"
+                                        :class="{ anchor: activeSection === 'products' }">Paperelle</RouterLink></li>
+                                    <li><RouterLink to="#questions"
+                                        :class="{ anchor: activeSection === 'questions' }">FAQs</RouterLink></li>
+                                    <li><RouterLink to="#newsletter"
+                                        :class="{ anchor: activeSection === 'newsletter' }">Newsletter</RouterLink></li>   
                                 </ul>
                             </nav>
         
@@ -60,6 +74,8 @@ header{
     font-family: $h-font;
     font-size: $t-size;
     background-color: $header-color;
+    position: sticky;
+    top: 0;
 }
 
 #logo img{
@@ -70,6 +86,10 @@ header{
 #navbar-box{
     height: 80px; 
     padding: 0.8rem 0;
+}
+
+.anchor{
+  color: $icon-color;
 }
 
     

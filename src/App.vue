@@ -19,47 +19,101 @@ export default{
     Questions,
     Newsletter,
     Footer
+  },
+  data() {
+    return {
+      activeSection: 'home', 
+    };
+  },
+  methods:{
+
+    onScroll() {
+      const sections = [
+        { id: 'home', offset: document.getElementById('home').offsetTop },
+        { id: 'advantages', offset: document.getElementById('advantages').offsetTop },
+        { id: 'reviews', offset: document.getElementById('reviews').offsetTop },
+        { id: 'products', offset: document.getElementById('products').offsetTop },
+        { id: 'questions', offset: document.getElementById('questions').offsetTop },
+        { id: 'newsletter', offset: document.getElementById('newsletter').offsetTop },
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+      const currentSection = sections.reduce((prev, curr) => {
+        return scrollPosition >= curr.offset ? curr : prev;
+      }, sections[0]);
+
+      this.activeSection = currentSection.id;
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
   }
 }
 
 </script>
 
 <template>
-  <Header/>
+  <Header :activeSection="activeSection"/>
   <main>
 
     <section>
-      <Banner/>
+      <div id="home">
+        <Banner/>
+      </div>
     </section>
 
     <section class="spacing">
-      <Advantages/>
+      <div id="advantages">
+        <Advantages/>
+      </div>
     </section>
 
     <section class="spacing">
-      <Reviews/>
+      <div id="reviews">
+        <Reviews/>
+      </div>
     </section>
 
     <section class="bg-section spacing">
-      <Products/>
+      <div id="products">
+        <Products/>
+      </div>
     </section>
 
     <section class="spacing">
-      <Questions/>
+      <div id="questions">
+        <Questions/>
+      </div>
     </section>
 
     <section class="spacing bg-section">
-      <Newsletter/>
+      <div id="newsletter">
+        <Newsletter/>
+      </div>
     </section>
 
   </main>
   <Footer/>
+  
 </template>
 
 <style lang="scss">
 @use './components/style/general';
 @use './components/style/variables' as *;
 @use './components/style/responsive';
+
+a{
+  text-decoration: none;
+  color: $main-color;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 header,
 body {
