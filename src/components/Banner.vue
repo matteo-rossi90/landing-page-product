@@ -12,16 +12,14 @@ export default {
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="banner" id="image-base">
+            <div class="banner d-flex align-items-center" id="image-base">
                 <div class="text-box">
-                    <h1 class="title">Lorem ipsum sit amet</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores eveniet, laborum
-                        omnis
-                        cupiditate
-                        blanditiis
-                        iste accusantium quam repudiandae dolorum beatae ipsa
+                    <h1 class="title main-title">Rubber Ducks Debuggings</h1>
+                    <p>
+                       Spiegare il codice a una paperella di gomma aiuta i programmatori
+                       a chiarire il pensiero e individuare errori nascosti
                     </p>
-                    <button>Acquista subito</button>
+                    <button class="btn-buy">ACQUISTALA SUBITO</button>
                 </div>
             </div>
         </div>
@@ -32,7 +30,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+@use './style/variables' as*;
 
 .banner{
     min-height: 300px;
@@ -48,6 +46,17 @@ export default {
 #image-base {
     background-image: url('../../public/img/banner-bg.png');
     
+}
+
+.btn-buy{
+    padding: 1rem 2rem;
+    border: 1px solid $main-color;
+    transition: ease 0.3s;
+
+    &:hover{
+        background-color: $main-color;
+        color: $header-color;
+    }
 }
 
     
