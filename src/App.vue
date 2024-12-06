@@ -6,6 +6,7 @@ import Advantages from './components/Advantages.vue';
 import Reviews from './components/Reviews.vue';
 import Products from './components/Products.vue';
 import Questions from './components/Questions.vue';
+import Newsletter from './components/Newsletter.vue';
 
 export default{
   components:{
@@ -15,6 +16,7 @@ export default{
     Reviews,
     Products,
     Questions,
+    Newsletter,
   }
 }
 
@@ -42,6 +44,10 @@ export default{
 
     <section class="spacing">
       <Questions/>
+    </section>
+
+    <section class="spacing bg-section">
+      <Newsletter/>
     </section>
 
   </main>
