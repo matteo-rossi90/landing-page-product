@@ -4,13 +4,15 @@ import Header from './components/Header.vue'
 import Banner from './components/Banner.vue'
 import Advantages from './components/Advantages.vue';
 import Reviews from './components/Reviews.vue';
+import Products from './components/Products.vue';
 
 export default{
   components:{
     Header,
     Banner,
     Advantages,
-    Reviews
+    Reviews,
+    Products,
   }
 }
 
@@ -30,6 +32,14 @@ export default{
 
     <section class="spacing">
       <Reviews/>
+    </section>
+
+    <section class="bg-section spacing">
+      <Products/>
+    </section>
+
+    <section>
+      
     </section>
 
   </main>
@@ -56,5 +66,10 @@ p,
 .text-box{
     padding: 1.5rem;
 }
+
+.bg-section{
+    background-color: $bg-color;
+}
+
 
 </style>
