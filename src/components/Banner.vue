@@ -33,6 +33,10 @@ export default {
 
 <style lang="scss" scoped>
 
+@use './style/general' as *;
+@use './style/variables' as *;
+@use './style/responsive' as *;
+
 .banner{
     min-height: 300px;
     background-size:cover;
@@ -47,10 +51,6 @@ export default {
 #image-base {
     background-image: url('../../public/img/banner-bg.png');
     
-}
-
-.text-box{
-    padding: 1.5rem;
 }
 
     
