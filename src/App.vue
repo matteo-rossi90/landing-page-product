@@ -29,12 +29,30 @@ export default{
 
     onScroll() {
       const sections = [
-        { id: 'home', offset: document.getElementById('home').offsetTop },
-        { id: 'advantages', offset: document.getElementById('advantages').offsetTop },
-        { id: 'reviews', offset: document.getElementById('reviews').offsetTop },
-        { id: 'products', offset: document.getElementById('products').offsetTop },
-        { id: 'questions', offset: document.getElementById('questions').offsetTop },
-        { id: 'newsletter', offset: document.getElementById('newsletter').offsetTop },
+        { 
+          id: 'home', 
+          offset: document.getElementById('home').offsetTop 
+        },
+        { 
+          id: 'advantages', 
+          offset: document.getElementById('advantages').offsetTop 
+        },
+        { 
+          id: 'reviews', 
+          offset: document.getElementById('reviews').offsetTop 
+        },
+        { 
+          id: 'products', 
+          offset: document.getElementById('products').offsetTop 
+        },
+        { 
+          id: 'questions', 
+          offset: document.getElementById('questions').offsetTop 
+        },
+        { 
+          id: 'newsletter', 
+          offset: document.getElementById('newsletter').offsetTop 
+        },
       ];
 
       const scrollPosition = window.scrollY + window.innerHeight / 2;
