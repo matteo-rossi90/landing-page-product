@@ -7,6 +7,7 @@ import Reviews from './components/Reviews.vue';
 import Products from './components/Products.vue';
 import Questions from './components/Questions.vue';
 import Newsletter from './components/Newsletter.vue';
+import Footer from './components/Footer.vue';
 
 export default{
   components:{
@@ -17,6 +18,7 @@ export default{
     Products,
     Questions,
     Newsletter,
+    Footer
   }
 }
 
@@ -51,6 +53,7 @@ export default{
     </section>
 
   </main>
+  <Footer/>
 </template>
 
 <style lang="scss">
