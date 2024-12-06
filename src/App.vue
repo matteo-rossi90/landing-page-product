@@ -3,12 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import Header from './components/Header.vue'
 import Banner from './components/Banner.vue'
 import Advantages from './components/Advantages.vue';
+import Reviews from './components/Reviews.vue';
 
 export default{
   components:{
     Header,
     Banner,
-    Advantages
+    Advantages,
+    Reviews
   }
 }
 
@@ -24,6 +26,10 @@ export default{
 
     <section class="spacing">
       <Advantages/>
+    </section>
+
+    <section class="spacing">
+      <Reviews/>
     </section>
 
   </main>
