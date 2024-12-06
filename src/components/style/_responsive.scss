@@ -1,3 +1,5 @@
+@import './variables';
+
 /* responsive */
 
 
@@ -11,12 +13,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .box-container {
-        width: 90%;
-        margin: 0 auto;
-        padding: 1.5rem;
     }
 
     #image-faq {
@@ -78,7 +74,13 @@
     }
 
     .border-icon {
-        border-right: 1px solid var(--bg-color);
-        border-left: 1px solid var(--bg-color);
+        border-right: 1px solid $bg-color;
+        border-left: 1px solid $bg-color;
+    }
+
+    .box-container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 1.5rem;
     }
 }

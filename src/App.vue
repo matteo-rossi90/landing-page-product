@@ -5,6 +5,7 @@ import Banner from './components/Banner.vue'
 import Advantages from './components/Advantages.vue';
 import Reviews from './components/Reviews.vue';
 import Products from './components/Products.vue';
+import Questions from './components/Questions.vue';
 
 export default{
   components:{
@@ -13,6 +14,7 @@ export default{
     Advantages,
     Reviews,
     Products,
+    Questions,
   }
 }
 
@@ -38,16 +40,17 @@ export default{
       <Products/>
     </section>
 
-    <section>
-      
+    <section class="spacing">
+      <Questions/>
     </section>
 
   </main>
 </template>
 
 <style lang="scss">
-@use './components/style/general' as *;
+@use './components/style/general';
 @use './components/style/variables' as *;
+@use './components/style/responsive';
 
 header,
 body {

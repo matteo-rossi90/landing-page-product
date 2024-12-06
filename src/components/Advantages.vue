@@ -137,10 +137,6 @@ export default {
 
 <style lang="scss" scoped>
 
-@use './style/general' as *;
-@use './style/variables' as *;
-@use './style/responsive' as *;
-
 #image-body{
     width: 300px;
     height: 300px;

@@ -65,9 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 
-@use './style/general' as *;
 @use './style/variables' as *;
-@use './style/responsive' as *;
 
 .text-product{
     margin: 1.5rem 0;

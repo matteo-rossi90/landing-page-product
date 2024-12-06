@@ -53,9 +53,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use './style/general' as *;
+
 @use './style/variables' as *;
-@use './style/responsive' as *;
 
 header{
     font-family: $h-font;

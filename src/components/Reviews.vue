@@ -83,10 +83,6 @@ export default {
 
 <style lang="scss" scoped>
 
-@use './style/general' as *;
-@use './style/variables' as *;
-@use './style/responsive' as *;
-
     .developer span{
     font-weight: 600
 }
