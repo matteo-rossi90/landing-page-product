@@ -8,3 +8,29 @@
     box-sizing: border-box;
 
 }
+
+header,
+body {
+    color: var(--main-color);
+}
+
+.title,
+.text-box,
+.text-product,
+.icon-info {
+    text-align: center;
+}
+
+.spacing {
+    padding: 2rem 0;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none
+}
