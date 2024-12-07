@@ -54,7 +54,7 @@ export default {
                 <div class="row g-0" v-for="(content, index) in leftColumn" :key="index">
                     <div class="col-sm-12">
 
-                        <div class="text-box">
+                        <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>
                             <p> {{ content.text }}</p>
 
@@ -79,7 +79,7 @@ export default {
                 <div class="row g-0" v-for="(content, index) in rightColumn" :key="index">
                     <div class="col-sm-12">
 
-                        <div class="text-box">
+                        <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>
                             <p>{{ content.text }}</p>
 

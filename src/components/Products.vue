@@ -1,34 +1,71 @@
 <script>
 export default {
-    name: 'Products'
+    name: 'Products',
+    data(){
+
+        return{
+            productContent:[
+                {
+                    img:"../../public/img/product-item1.png",
+                    name:"Cool-duck",
+                    price: "15",
+                    vote: "5"
+                },
+                {
+                    img:"../../public/img/product-item2.png",
+                    name:"Classic-duck",
+                    price: "29",
+                    vote:"5"
+                },
+                {
+                    img:"../../public/img/product-item3.png",
+                    name:"Bat-duck",
+                    price: "69",
+                    vote: "5"
+                },
+            ]
+        }
+    },
+    methods:{
+        
+    }
 }
 </script>
 
 <template>
     
     <div class="row g-0">
-        <h1 class="title">Una paperella per ogni stile di programmazione</h1>
+
+        <h1 class="title">
+            <strong>
+                 Una paperella per ogni stile di programmazione
+            </strong>
+        </h1>
 
         <p class="text-product">Una paperella per ogni programmazione</p>
 
         <div class="product-item">
 
-            <div class="card-item">
-                <div class="image-item">
-                    <img src="../../public/img/product-item1.png" alt="">
-                </div>
-                <div class="vote">
-                    <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                    <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                    <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                    <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                    <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                </div>
-                <h3 class="product-name">Nome prodotto</h3>
-                <h3 class="price">6,00 euro</h3>
-            </div>
+            
 
-            <div class="card-item">
+                <div class="card-item" v-for="(product, index) in productContent" :key="index">
+                    <div class="image-item">
+                        <img :src="product.img" :alt="product.name">
+                    </div>
+                    <div class="vote">
+                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                    </div>
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <h3 class="price">&dollar;{{ product.price }}</h3>
+                </div>
+
+            
+
+            <!-- <div class="card-item">
                 <div class="image-item">
                     <img src="../../public/img/product-item2.png" alt="">
                 </div>
@@ -56,7 +93,7 @@ export default {
                 </div>
                 <h3 class="product-name">Nome prodotto</h3>
                 <h3 class="price">6,00 euro</h3>
-            </div>
+            </div> -->
 
         </div>
     </div>
