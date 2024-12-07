@@ -53,17 +53,17 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+// @media screen and (max-width: 768px) {
 
-    .active {
-        display: block;
-    }
+    // .active {
+        // display: block;
+    // }
 
-    .display {
-        display: none;
-    }
+    // .display {
+        // display: none;
+    // }
 
-}
+// }
 
 @media screen and (min-width: 992px) {
     .content-item {
@@ -82,6 +82,10 @@
         width: 90%;
         margin: 0 auto;
         padding: 1.5rem;
+    }
+
+    .info{
+        width: calc(100% / 3)
     }
 
 }

@@ -94,6 +94,7 @@ header{
     background-color: $header-color;
     position: sticky;
     top: 0;
+    z-index: 1050
 }
 
 #logo img{
