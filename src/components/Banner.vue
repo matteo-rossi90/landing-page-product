@@ -1,6 +1,35 @@
 <script>
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
-    name: 'Banner'
+    name: 'Banner',
+    methods:{
+        animateBanner() {
+            const boxes = document.querySelectorAll(".text-banner");
+
+            boxes.forEach((box) => {
+                gsap.from(box, {
+                    scrollTrigger: {
+                        trigger: box,
+                        start: "top 80%",
+                        end: "top 30%", 
+                        toggleActions: "play none none none", 
+                    },
+                    opacity: 0,
+                    y: 50, 
+                    duration: 1 
+                });
+            });
+        }
+
+    },
+    mounted() {
+        this.animateBanner();
+    },
 }
 </script>
 
@@ -13,7 +42,7 @@ export default {
         </div>
         <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="banner d-flex align-items-center" id="image-base">
-                <div class="text-box">
+                <div class="text-box text-banner">
                     <h1 class="title main-title">Rubber Ducks Debuggings</h1>
                     <p>
                        Spiegare il codice a una paperella di gomma aiuta i programmatori

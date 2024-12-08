@@ -1,4 +1,10 @@
 <script>
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
     name: 'Advantages',
     data(){
@@ -36,7 +42,30 @@ export default {
         }
                 
         
-    }
+    },
+    methods: {
+        animateAdv() {
+
+            const boxes = document.querySelectorAll(".text-adv");
+
+            boxes.forEach((box) => {
+                gsap.from(box, {
+                    scrollTrigger: {
+                        trigger: box,
+                        start: "top 80%",
+                        end: "top 30%", 
+                        toggleActions: "play none none none", 
+                    },
+                    opacity: 0,
+                    y: 50, 
+                    duration: 1 
+                });
+            });
+        }
+    },
+    mounted() {
+        this.animateAdv();
+    },
 }
 </script>
 
@@ -52,7 +81,7 @@ export default {
             <div class="col-12 col-md-12 col-md col-lg">
 
                 <div class="row g-0" v-for="(content, index) in leftColumn" :key="index">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 text-adv">
 
                         <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>
@@ -67,7 +96,7 @@ export default {
             </div>
 
             <!-- colonna di centro -->
-            <div class="col col-lg d-flex justify-content-center align-items-center">
+            <div class="col col-lg d-flex justify-content-center align-items-center text-adv">
                 <div id="image-body">
                     <img src="../../public/img/invisible.png" alt="">
                 </div>
@@ -77,7 +106,7 @@ export default {
             <div class="col-12 col-md-12 col-md col-lg">
 
                 <div class="row g-0" v-for="(content, index) in rightColumn" :key="index">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 text-adv">
 
                         <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>

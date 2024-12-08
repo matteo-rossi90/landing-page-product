@@ -4,7 +4,12 @@ import { Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
-console.log(Pagination)
+// console.log(Pagination)
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 export default {
@@ -42,6 +47,26 @@ export default {
             Pagination
         }
     },
+    methods:{
+        animateReview() {
+            const reviews = document.querySelectorAll(".text-review");
+            
+            
+            gsap.from(reviews, {
+                scrollTrigger: {
+                    trigger: reviews,
+                    start: "top 80%",
+                    end: "top 30%", 
+                    toggleActions: "play play none none", 
+                },
+                opacity: 0,
+                x: 50, 
+                duration: 1,
+                stagger: 0.3
+            });
+    
+        }
+    },
     computed:{
         getStars() {
             return (vote) => {
@@ -58,6 +83,9 @@ export default {
     components: {
     Swiper,
     SwiperSlide
+  },
+  mounted() {
+    this.animateReview();
   },
 }
 </script>
@@ -80,7 +108,7 @@ export default {
                 }">
                     
                     <swiperSlide v-for="(review, index) in sliderContent" :key="index">
-                        <div class="text-box">
+                        <div class="text-box text-review">
 
                             <p>{{ review.message }}</p>
                             <div class="vote">

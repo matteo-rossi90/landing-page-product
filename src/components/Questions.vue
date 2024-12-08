@@ -1,4 +1,10 @@
 <script>
+
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
     name:'Questions',
     data(){
@@ -48,7 +54,63 @@ export default {
         showAcc(index){
            
             this.accordionIndex = this.accordionIndex === index ? null : index;
+        },
+        animateInfo(){
+            const info = document.querySelectorAll('.animated-info');
+            
+            gsap.from(info, {
+                scrollTrigger:{
+                    trigger: info,
+                    start: "top 80%",
+                    end: "top 30%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.3
+            })
+        },
+        animateImage(){
+
+            const image = document.getElementById('image-faq');
+
+            gsap.from(image, {
+                scrollTrigger: {
+                    trigger: image,
+                    start: "top 80%",
+                    end: "top 30%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                x: 50,
+                duration: 1
+
+            })
+        },
+        animateAsk(){
+
+            const questions = document.querySelectorAll('.animated-questions');
+
+            gsap.from(questions, {
+                scrollTrigger:{
+                    trigger: questions,
+                    start: "top 80%",
+                    end: "top 30%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.3
+            })
         }
+        
+    },
+    mounted(){
+        this.animateImage();
+        this.animateAsk();
+        this.animateInfo();
     }
 }
 </script>
@@ -69,7 +131,7 @@ export default {
             <div class="col-sm-12 col-md-6 col-lg-6">
 
                 <div v-for="(accordion, index) in accordionContent" :key="index">
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center animated-questions">
                         <button class="section title-question" @click="showAcc(index)">
                         
                             {{ accordion.question }}
@@ -97,7 +159,7 @@ export default {
                     <div class="row g-0 justify-content-center">
                         <div class="content-item">
 
-                            <div class="info" v-for="(item, index) in infoContent" :key="index">
+                            <div class="info animated-info" v-for="(item, index) in infoContent" :key="index">
                                 <div class="icon-info">
                                     <img :src="item.icon" :alt="item.title">
                                 </div>

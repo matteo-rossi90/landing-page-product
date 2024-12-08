@@ -1,4 +1,9 @@
 <script>
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
     name: 'Products',
     data(){
@@ -26,6 +31,44 @@ export default {
             ]
         }
     },
+    methods:{
+        animateTitles(){
+            const titleProd = document.querySelectorAll(".animated-text");
+
+            gsap.from(titleProd, {
+                scrollTrigger: {
+                    trigger: titleProd,
+                    start: "top 80%",
+                    end: "top 30%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.3
+            })
+
+        },
+        animateProd(){
+
+            const products = document.querySelectorAll(".card-animation");
+
+            gsap.from(products, {
+                scrollTrigger: {
+                    trigger: products,
+                    start: "top 80%",
+                    end: "top 30%", 
+                    toggleActions: "play none none none", 
+                },
+                opacity: 0,
+                x: 50, 
+                duration: 1,
+                stagger: 0.3
+            });
+            
+            
+        }
+    },
     computed:{
         getStars() {
             return (vote) => {
@@ -38,6 +81,10 @@ export default {
                 return stars;
             };
         }
+    },
+    mounted(){
+        this.animateTitles();
+        this.animateProd();
     }
 }
 </script>
@@ -46,19 +93,19 @@ export default {
     
     <div class="row g-0">
 
-        <h1 class="title">
+        <h1 class="title animated-text">
             <strong>
                  Una paperella per ogni stile di programmazione
             </strong>
         </h1>
 
-        <p class="text-product">Una paperella per ogni programmazione</p>
+        <p class="text-product animated-text">Una paperella per ogni programmazione</p>
 
         <div class="product-item">
 
             
 
-                <div class="card-item" v-for="(product, index) in productContent" :key="index">
+                <div class="card-item card-animation" v-for="(product, index) in productContent" :key="index">
                     <div class="image-item">
                         <img :src="product.img" :alt="product.name">
                     </div>
