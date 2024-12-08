@@ -9,25 +9,35 @@ export default {
                     img:"../../public/img/product-item1.png",
                     name:"Cool-duck",
                     price: "15",
-                    vote: "5"
+                    vote: 5
                 },
                 {
                     img:"../../public/img/product-item2.png",
                     name:"Classic-duck",
                     price: "29",
-                    vote:"5"
+                    vote: 5
                 },
                 {
                     img:"../../public/img/product-item3.png",
                     name:"Bat-duck",
                     price: "69",
-                    vote: "5"
+                    vote: 5
                 },
             ]
         }
     },
-    methods:{
-        
+    computed:{
+        getStars() {
+            return (vote) => {
+                let stars = [];
+                for (let i = 0; i < 5; i++) {
+                    if (i < vote) {
+                        stars.push('full');
+                    }
+                }
+                return stars;
+            };
+        }
     }
 }
 </script>
@@ -53,11 +63,11 @@ export default {
                         <img :src="product.img" :alt="product.name">
                     </div>
                     <div class="vote">
-                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                        <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                        <img v-for="(star, i) in getStars(product.vote)" 
+                            :key="i" 
+                            :src="star === 'full' ? '../../public/img/icon/svg_icons/star-fill.svg' : ''" 
+                            alt="star">
+
                     </div>
                     <h3 class="product-name">{{ product.name }}</h3>
                     <h3 class="price">&dollar;{{ product.price }}</h3>

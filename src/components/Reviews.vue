@@ -1,5 +1,6 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
+//import { Pagination } from "swiper";
 
 export default {
     name: 'Reviews',
@@ -35,6 +36,19 @@ export default {
             ]
         }
     },
+    computed:{
+        getStars() {
+            return (vote) => {
+                let stars = [];
+                for (let i = 0; i < 5; i++) {
+                    if (i < vote) {
+                        stars.push('full');
+                    }
+                }
+                return stars;
+            };
+        }
+    },
     components: {
     Swiper,
     SwiperSlide
@@ -51,11 +65,8 @@ export default {
             <div class="col-info comment">
 
                 <Swiper
-                :spaceBetween="30"
-                :slidesPerView="1"
-                :pagination="{ 
-                    clickable: true,
-                    dynamicBullets: true, }"
+                
+                :pagination="true"
                 :breakpoints="{
                     640: { slidesPerView: 1, spaceBetween: 20 },
                     768: { slidesPerView: 2, spaceBetween: 30 },
@@ -67,11 +78,10 @@ export default {
 
                             <p>{{ review.message }}</p>
                             <div class="vote">
-                                <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                                <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                                <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                                <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
-                                <img src="../../public/img/icon/svg_icons/star-fill.svg" alt="">
+                                <img v-for="(star, i) in getStars(review.vote)" 
+                                     :key="i" 
+                                     :src="star === 'full' ? '../../public/img/icon/svg_icons/star-fill.svg' : ''" 
+                                     alt="star">
                             </div>
                             <div class="developer">
                                 <span>{{ review.author }}</span> - <span>{{ review.date }}</span>

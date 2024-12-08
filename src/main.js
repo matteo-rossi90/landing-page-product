@@ -1,7 +1,6 @@
 import './assets/main.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
-
 import "swiper/css";
 import "swiper/css/pagination";
 
