@@ -1,6 +1,11 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-//import { Pagination } from "swiper";
+import { Pagination } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+console.log(Pagination)
+
 
 export default {
     name: 'Reviews',
@@ -33,7 +38,8 @@ export default {
                 },
 
 
-            ]
+            ],
+            Pagination
         }
     },
     computed:{
@@ -65,8 +71,8 @@ export default {
             <div class="col-info comment">
 
                 <Swiper
-                
-                :pagination="true"
+                :modules="[Pagination]"
+                :pagination="{ clickable: true }"
                 :breakpoints="{
                     640: { slidesPerView: 1, spaceBetween: 20 },
                     768: { slidesPerView: 2, spaceBetween: 30 },
@@ -104,9 +110,18 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use './style/variables' as*;
 
 .developer span{
-    font-weight: 600
+    font-weight: 600;
+}
+
+.developer{
+    padding-bottom: 1.5rem;
+}
+
+.vote{
+    padding-bottom: 1rem;
 }
 
 .swiper-pagination-bullet {
@@ -117,7 +132,7 @@ export default {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: blue;
+  background-color: $icon-color;
 }
 
 </style>
