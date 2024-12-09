@@ -78,10 +78,10 @@ export default {
         <div class="row g-0">
 
             <!-- colonna di sinistra -->
-            <div class="col-12 col-md-12 col-md col-lg">
+            <div class="col-12 col-md-4">
 
-                <div class="row g-0" v-for="(content, index) in leftColumn" :key="index">
-                    <div class="col-sm-12 text-adv">
+                <div class="row g-0" >
+                    <div class="col-sm-12 text-adv" v-for="(content, index) in leftColumn" :key="index">
 
                         <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>
@@ -96,17 +96,17 @@ export default {
             </div>
 
             <!-- colonna di centro -->
-            <div class="col col-lg d-flex justify-content-center align-items-center text-adv">
+            <div class="col d-flex justify-content-center align-items-center text-adv">
                 <div id="image-body">
                     <img src="../../public/img/invisible.png" alt="">
                 </div>
             </div>
 
             <!-- colonna di destra -->
-            <div class="col-12 col-md-12 col-md col-lg">
+            <div class="col-12 col-md-4">
 
-                <div class="row g-0" v-for="(content, index) in rightColumn" :key="index">
-                    <div class="col-sm-12 text-adv">
+                <div class="row g-0">
+                    <div class="col-sm-12 text-adv" v-for="(content, index) in rightColumn" :key="index">
 
                         <div class="text-box h-100 d-flex flex-column justify-content-between">
                             <h2 class="title">{{ content.title }}</h2>
